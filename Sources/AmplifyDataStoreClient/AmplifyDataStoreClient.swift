@@ -5,12 +5,12 @@ import Combine
 import Amplify
 import Dependencies
 
-struct DataStoreClient {
+public struct DataStoreClient {
     var getReady: () async -> Void
 }
 
 extension DataStoreClient: DependencyKey {
-    static var liveValue = {
+    public static var liveValue = {
         let manager = DataStoreManager()
         return Self(
             getReady: { await manager.getReady() }
@@ -51,7 +51,7 @@ private class DataStoreManager {
     }
 }
 
-extension DependencyValues {
+public extension DependencyValues {
     var dataStore: DataStoreClient {
         get { self[DataStoreClient.self] }
         set { self[DataStoreClient.self] = newValue }
