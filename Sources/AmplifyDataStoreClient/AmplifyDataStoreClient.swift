@@ -6,7 +6,7 @@ import Amplify
 import Dependencies
 
 public struct DataStoreClient {
-    var getReady: () async -> Void
+    public var getReady: () async -> Void
 }
 
 extension DataStoreClient: DependencyKey {
